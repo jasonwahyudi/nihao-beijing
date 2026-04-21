@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+<title>Nihao Beijing — Private Tour & Car Service</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#D4AF37;--gold-light:#E8CC6A;--gold-dark:#9A7B1A;--black:#080808;--black2:#111108;--black3:#1A1800;--red:#BE1414;--white:#F5F3EE;--gray:#888880;--gray2:#CCCCBB}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 48px;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(to bottom,rgba(8,8,8,.95),transparent);backdrop-filter:blur(2px)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--gold);letter-spacing:2px;text-decoration:none}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:var(--gray2);text-decoration:none;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;transition:color .3s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{background:var(--gold);color:var(--black)!important;padding:8px 22px;font-weight:600!important;letter-spacing:1px;transition:background .3s!important}
+.nav-cta:hover{background:var(--gold-light)!important}
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 40px 80px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(212,175,55,.08) 0%,transparent 60%)}
+.hero-line-top{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(to right,transparent,var(--gold),transparent)}
+.cjk{font-family:'Cormorant Garamond',serif;font-size:clamp(64px,10vw,110px);color:var(--gold);letter-spacing:20px;line-height:1;animation:fadeUp 1s ease .2s both}
+.hero-brand{font-family:'Cormorant Garamond',serif;font-size:clamp(42px,7vw,80px);font-weight:700;color:var(--white);letter-spacing:8px;line-height:1.1;animation:fadeUp 1s ease .4s both}
+.hero-divider{width:120px;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent);margin:28px auto;animation:fadeUp 1s ease .6s both}
+.hero-tagline{font-size:15px;color:var(--gray2);letter-spacing:3px;text-transform:uppercase;animation:fadeUp 1s ease .7s both}
+.hero-badges{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:48px;animation:fadeUp 1s ease .9s both}
+.badge{border:1px solid rgba(212,175,55,.3);padding:10px 22px;font-size:12px;letter-spacing:1.5px;color:var(--gold);text-transform:uppercase;background:rgba(212,175,55,.05)}
+.hero-cta{margin-top:52px;display:flex;gap:16px;justify-content:center;animation:fadeUp 1s ease 1.1s both}
+.btn-primary{background:var(--gold);color:var(--black);padding:16px 40px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:13px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all .3s;display:inline-block}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-2px)}
+.btn-outline{border:1px solid var(--gold);color:var(--gold);padding:16px 40px;font-family:'DM Sans',sans-serif;font-weight:500;font-size:13px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all .3s;display:inline-block;background:transparent;cursor:pointer}
+.btn-outline:hover{background:rgba(212,175,55,.1);transform:translateY(-2px)}
+section{padding:100px 48px;max-width:1100px;margin:0 auto}
+.section-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:block}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,56px);font-weight:600;color:var(--white);line-height:1.1;margin-bottom:20px}
+.section-title em{font-style:italic;color:var(--gold)}
+.section-divider{width:60px;height:2px;background:var(--gold);margin-bottom:48px}
+.full-divider{width:100%;height:1px;background:linear-gradient(to right,transparent,rgba(212,175,55,.3),transparent)}
+/* ABOUT */
+.about-wrapper{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.about-text p{color:var(--gray2);line-height:1.8;margin-bottom:20px;font-size:15px}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px}
+.stat-box{border:1px solid rgba(212,175,55,.2);padding:24px;background:rgba(212,175,55,.03);transition:all .3s}
+.stat-box:hover{border-color:var(--gold);background:rgba(212,175,55,.07)}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:42px;color:var(--gold);line-height:1;margin-bottom:6px}
+.stat-label{font-size:11px;color:var(--gray);letter-spacing:1.5px;text-transform:uppercase}
+.about-whyus{display:flex;flex-direction:column;gap:20px}
+.why-item{display:flex;gap:20px;align-items:flex-start;padding:20px;border-left:2px solid rgba(212,175,55,.2);transition:all .3s}
+.why-item:hover{border-left-color:var(--gold);background:rgba(212,175,55,.03)}
+.why-icon{font-size:22px;flex-shrink:0;margin-top:2px}
+.why-content h4{font-size:13px;font-weight:600;letter-spacing:1px;color:var(--white);margin-bottom:6px;text-transform:uppercase}
+.why-content p{font-size:13px;color:var(--gray2);line-height:1.6}
+/* SERVICES */
+.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px}
+.service-card{background:var(--black2);padding:48px 40px;border:1px solid rgba(212,175,55,.08);transition:all .4s;position:relative;overflow:hidden}
+.service-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:var(--gold);transition:height .4s}
+.service-card:hover::before{height:100%}
+.service-card:hover{border-color:rgba(212,175,55,.25);background:rgba(26,24,0,.8)}
+.service-icon{font-size:36px;margin-bottom:20px;display:block}
+.service-card h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--white);margin-bottom:8px}
+.service-sub{font-size:11px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;display:block}
+.service-card ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.service-card li{font-size:13px;color:var(--gray2);padding-left:16px;position:relative;line-height:1.5}
+.service-card li::before{content:'—';position:absolute;left:0;color:var(--gold-dark);font-size:12px}
+/* PRICE */
+.price-tabs{display:flex;gap:0;margin-bottom:48px;border-bottom:1px solid rgba(212,175,55,.2)}
+.tab-btn{padding:14px 32px;background:transparent;border:none;color:var(--gray);font-family:'DM Sans',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .3s;border-bottom:2px solid transparent;margin-bottom:-1px}
+.tab-btn.active{color:var(--gold);border-bottom-color:var(--gold)}
+.tab-btn:hover{color:var(--gold-light)}
+.tab-content{display:none}
+.tab-content.active{display:block}
+.price-table{width:100%;border-collapse:collapse}
+.price-table thead tr{border-bottom:1px solid rgba(212,175,55,.3)}
+.price-table th{text-align:left;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);padding:14px 20px;font-weight:600}
+.price-table tbody tr{border-bottom:1px solid rgba(255,255,255,.04);transition:background .2s}
+.price-table tbody tr:hover{background:rgba(212,175,55,.04)}
+.price-table td{padding:20px;font-size:14px;color:var(--gray2)}
+.price-table td:nth-child(2),.price-table td:nth-child(3){color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600}
+.price-note{margin-top:20px;padding:16px 24px;border:1px solid rgba(212,175,55,.15);background:rgba(212,175,55,.03);font-size:12px;color:var(--gray);letter-spacing:.5px}
+/* DESTINATIONS */
+.dest-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.dest-card{border:1px solid rgba(212,175,55,.12);padding:36px 28px;background:var(--black2);transition:all .3s}
+.dest-card:hover{border-color:rgba(212,175,55,.4);transform:translateY(-4px)}
+.dest-icon{font-size:32px;margin-bottom:16px;display:block}
+.dest-card h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--white);margin-bottom:10px}
+.dest-card p{font-size:13px;color:var(--gray2);line-height:1.7}
+/* HOW TO ORDER */
+.steps-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.steps-row::before{content:'';position:absolute;top:28px;left:12%;right:12%;height:1px;background:linear-gradient(to right,var(--gold-dark),rgba(212,175,55,.3));z-index:0}
+.step{text-align:center;padding:0 20px;position:relative;z-index:1}
+.step-num{width:56px;height:56px;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--gold);background:var(--black);position:relative}
+.step h4{font-size:12px;letter-spacing:1.5px;color:var(--white);text-transform:uppercase;margin-bottom:10px;font-weight:600}
+.step p{font-size:12px;color:var(--gray);line-height:1.7}
+/* KETENTUAN */
+.accord-item{border:1px solid rgba(212,175,55,.12);background:var(--black2);overflow:hidden;transition:border-color .3s}
+.accord-item:hover{border-color:rgba(212,175,55,.3)}
+.accord-head{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;cursor:pointer;font-size:13px;font-weight:600;letter-spacing:.5px;color:var(--white);user-select:none;transition:background .2s}
+.accord-head:hover{background:rgba(212,175,55,.05)}
+.accord-head.open{color:var(--gold)}
+.accord-arrow{color:var(--gold);font-size:20px;font-weight:300;transition:transform .3s;flex-shrink:0}
+.accord-head.open .accord-arrow{transform:rotate(45deg)}
+.accord-body{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s;padding:0 24px}
+.accord-body.open{max-height:300px;padding:0 24px 18px}
+.accord-body p{font-size:13px;color:var(--gray2);line-height:1.8;padding:3px 0}
+.accord-body strong{color:var(--white)}
+/* ITINERARY */
+.itin-label{display:block;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;font-weight:600}
+.itin-input{width:100%;background:rgba(212,175,55,.05);border:1px solid rgba(212,175,55,.2);color:var(--white);padding:12px 16px;font-family:'DM Sans',sans-serif;font-size:13px;outline:none;transition:border-color .3s;-webkit-appearance:none}
+.itin-input:focus{border-color:var(--gold)}
+.itin-input option{background:#1a1800;color:var(--white)}
+.itin-day{margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid rgba(212,175,55,.1)}
+.itin-day:last-child{border-bottom:none;margin-bottom:0}
+.itin-day-title{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--gold);margin-bottom:12px;font-weight:600}
+.itin-dest{display:flex;gap:12px;margin-bottom:10px;padding:10px 14px;background:rgba(212,175,55,.04);border-left:2px solid var(--gold-dark)}
+.itin-time{font-size:11px;color:var(--gold);letter-spacing:1px;min-width:60px;padding-top:2px}
+.itin-place{font-size:13px;color:var(--gray2);line-height:1.6}
+.itin-place strong{color:var(--white);display:block;margin-bottom:2px}
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.contact-info p{color:var(--gray2);font-size:15px;line-height:1.8;margin-bottom:36px}
+.contact-items{display:flex;flex-direction:column;gap:20px}
+.contact-item{display:flex;gap:20px;align-items:center;padding:20px;border:1px solid rgba(212,175,55,.12);background:rgba(212,175,55,.02);transition:all .3s;text-decoration:none;color:inherit}
+.contact-item:hover{border-color:var(--gold);background:rgba(212,175,55,.07)}
+.contact-item-icon{font-size:24px;flex-shrink:0}
+.contact-item-text label{display:block;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.contact-item-text span{font-size:15px;color:var(--white);font-weight:500}
+/* MOBILE NAV */
+.nav-mobile-btn{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:10px;min-width:44px;min-height:44px;align-items:center;justify-content:center}
+.nav-mobile-btn span{display:block;width:24px;height:2px;background:var(--gold)}
+.mobile-menu{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(8,8,8,.98);z-index:200;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:28px;transform:translateX(100%);transition:transform .3s ease}
+.mobile-menu.open{transform:translateX(0)}
+.mobile-menu a{font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--white);text-decoration:none;letter-spacing:2px;padding:8px 16px}
+.mobile-menu a:hover{color:var(--gold)}
+.mobile-menu-close{position:absolute;top:20px;right:20px;font-size:24px;color:var(--gold);cursor:pointer;background:none;border:none;min-width:44px;min-height:44px}
+footer{padding:40px 48px;border-top:1px solid rgba(212,175,55,.15);display:flex;justify-content:space-between;align-items:center}
+footer p{font-size:11px;color:var(--gray);letter-spacing:1px}
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+/* MOBILE */
+@media(max-width:768px){
+nav{padding:14px 20px}
+.nav-links{display:none}
+.nav-mobile-btn{display:flex}
+section{padding:60px 20px;max-width:100%}
+#hero{padding:100px 20px 60px}
+.cjk{font-size:52px;letter-spacing:10px}
+.hero-brand{font-size:32px;letter-spacing:4px}
+.hero-tagline{font-size:11px;letter-spacing:1.5px}
+.hero-badges{gap:8px}
+.badge{padding:8px 14px;font-size:11px}
+.hero-cta{flex-direction:column;align-items:center;gap:12px;width:100%}
+.btn-primary,.btn-outline{width:100%;text-align:center;padding:14px 20px;font-size:12px;min-height:48px}
+.about-wrapper{grid-template-columns:1fr;gap:36px}
+.about-stats{grid-template-columns:1fr 1fr;gap:12px}
+.stat-box{padding:16px}
+.stat-num{font-size:32px}
+.section-title{font-size:30px}
+.services-grid{grid-template-columns:1fr;gap:2px}
+.service-card{padding:28px 20px}
+.price-tabs{overflow-x:auto;white-space:nowrap}
+.tab-btn{padding:12px 18px;font-size:11px;min-height:44px}
+.price-table th,.price-table td{padding:12px 10px;font-size:12px}
+.price-table td:nth-child(2),.price-table td:nth-child(3){font-size:16px}
+.dest-grid{grid-template-columns:1fr;gap:12px}
+.dest-card{padding:24px 20px}
+.steps-row{grid-template-columns:1fr 1fr;gap:32px}
+.steps-row::before{display:none}
+.step{padding:0 8px}
+.step-num{width:44px;height:44px;font-size:18px}
+.step h4{font-size:11px}
+.step p{font-size:11px}
+.contact-grid{grid-template-columns:1fr;gap:36px}
+.contact-item{padding:16px;min-height:48px}
+.accord-head{padding:14px 16px;font-size:12px}
+footer{flex-direction:column;gap:8px;text-align:center;padding:28px 20px}
+}
+@media(max-width:400px){
+section{padding:50px 16px}
+.cjk{font-size:44px;letter-spacing:8px}
+.hero-brand{font-size:26px;letter-spacing:3px}
+.section-title{font-size:26px}
+.badge{padding:7px 10px;font-size:10px}
+.service-card,.dest-card{padding:20px 16px}
+.service-card h3,.dest-card h3{font-size:20px}
+.stat-num{font-size:28px}
+.mobile-menu a{font-size:22px}
+}
+</style>
+</head>
+<body>
+<nav>
+<a href="javascript:void(0);" class="nav-logo">NIHAO BEIJING</a>
+<ul class="nav-links">
+<li><a onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'});return false;" href="javascript:void(0);">Tentang</a></li>
+<li><a onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'});return false;" href="javascript:void(0);">Layanan</a></li>
+<li><a onclick="document.getElementById('price').scrollIntoView({behavior:'smooth'});return false;" href="javascript:void(0);">Harga</a></li>
+<li><a onclick="document.getElementById('destinations').scrollIntoView({behavior:'smooth'});return false;" href="javascript:void(0);">Destinasi</a></li>
+<li><a onclick="document.getElementById('ketentuan').scrollIntoView({behavior:'smooth'});return false;" href="javascript:void(0);">Ketentuan</a></li>
+<li><a onclick="document.getElementById('itinerary').scrollIntoView({behavior:'smooth'});return false;" href="javascript:void(0);">Itinerary</a></li>
+<li><a href="https://wa.me/6281266866889" target="_blank" rel="noopener noreferrer" class="nav-cta">Booking</a></li>
+</ul>
+<div class="nav-mobile-btn" onclick="event.preventDefault();event.stopPropagation();document.getElementById('mobileMenu').classList.add('open');return false;">
+<span></span><span></span><span></span>
+</div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+<button class="mobile-menu-close" onclick="event.preventDefault();document.getElementById('mobileMenu').classList.remove('open');return false;">✕</button>
+<a onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'});document.getElementById('mobileMenu').classList.remove('open');return false;" href="javascript:void(0);">Tentang</a>
+<a onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'});document.getElementById('mobileMenu').classList.remove('open');return false;" href="javascript:void(0);">Layanan</a>
+<a onclick="document.getElementById('price').scrollIntoView({behavior:'smooth'});document.getElementById('mobileMenu').classList.remove('open');return false;" href="javascript:void(0);">Harga</a>
+<a onclick="document.getElementById('destinations').scrollIntoView({behavior:'smooth'});document.getElementById('mobileMenu').classList.remove('open');return false;" href="javascript:void(0);">Destinasi</a>
+<a onclick="document.getElementById('ketentuan').scrollIntoView({behavior:'smooth'});document.getElementById('mobileMenu').classList.remove('open');return false;" href="javascript:void(0);">Ketentuan</a>
+<a onclick="document.getElementById('itinerary').scrollIntoView({behavior:'smooth'});document.getElementById('mobileMenu').classList.remove('open');return false;" href="javascript:void(0);">Itinerary</a>
+<a href="https://wa.me/6281266866889" target="_blank" rel="noopener noreferrer" style="color:var(--gold);font-weight:700;">💬 Booking WA</a>
+</div>
+<!-- HERO -->
+<section id="hero" style="max-width:100%;padding:0 40px;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative;">
+<div class="hero-bg"></div>
+<div class="hero-line-top"></div>
+<div class="cjk">北 京</div>
+<h1 class="hero-brand">NIHAO BEIJING</h1>
+<div class="hero-divider"></div>
+<p class="hero-tagline">Private Tour & Car Service untuk Wisatawan Indonesia</p>
+<div class="hero-badges">
+<span class="badge">🚗 Private Car</span>
+<span class="badge">🎙 Tour Guide</span>
+<span class="badge">✈️ Airport Pickup</span>
+<span class="badge">📦 Jastip PDD & Taobao</span>
+</div>
+<div class="hero-cta">
+<a href="https://wa.me/6281266866889" target="_blank" rel="noopener noreferrer" class="btn-primary">Booking Sekarang</a>
+<a onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'});return false;" href="javascript:void(0);" class="btn-outline">Lihat Layanan</a>
+</div>
+</section>
+<div class="full-divider"></div>
+<!-- ABOUT -->
+<section id="about">
+<div class="about-wrapper">
+<div class="about-text reveal">
+<span class="section-label">Tentang Kami</span>
+<h2 class="section-title">Teman Terbaik<br>di <em>Beijing</em></h2>
+<div class="section-divider"></div>
+<p>Nihao Beijing adalah layanan tour guide & car service private yang dirancang khusus untuk wisatawan Indonesia yang berkunjung ke Beijing, Tiongkok.</p>
+<p>Dipimpin oleh Jason Wahyudi — mahasiswa bisnis internasional di UIBE Beijing dengan kemampuan Mandarin HSK 5. Kami memahami kebutuhan dan budaya wisatawan Indonesia.</p>
+<p>Bersama kami, perjalanan Anda terasa seperti ditemani teman yang sudah lama tinggal di Beijing — bukan sekadar guide bayaran.</p>
+<div class="about-stats">
+<div class="stat-box"><div class="stat-num">HSK 5</div><div class="stat-label">Mandarin Fasih</div></div>
+<div class="stat-box"><div class="stat-num">24/7</div><div class="stat-label">Siap Melayani</div></div>
+<div class="stat-box"><div class="stat-num">4</div><div class="stat-label">Jenis Layanan</div></div>
+<div class="stat-box"><div class="stat-num">100%</div><div class="stat-label">Bahasa Indonesia</div></div>
+</div>
+</div>
+<div class="about-whyus reveal">
+<span class="section-label">Kenapa Pilih Kami</span>
+<div class="why-item"><span class="why-icon">🗣️</span><div class="why-content"><h4>Bahasa Indonesia Fasih</h4><p>Guide kami berbahasa Indonesia sehingga Anda bisa santai tanpa hambatan komunikasi.</p></div></div>
+<div class="why-item"><span class="why-icon">🚗</span><div class="why-content"><h4>Armada Profesional</h4><p>Kendaraan terawat sesuai kapasitas rombongan, dari sedan hingga bus pariwisata.</p></div></div>
+<div class="why-item"><span class="why-icon">💰</span><div class="why-content"><h4>Harga Transparan</h4><p>Tidak ada biaya tersembunyi. Harga sudah jelas dari awal, bayar sesuai yang disepakati.</p></div></div>
+<div class="why-item"><span class="why-icon">📍</span><div class="why-content"><h4>Local Knowledge</h4><p>Tahu spot terbaik, waktu terbaik, dan tips lokal yang tidak ada di buku panduan wisata.</p></div></div>
+<div class="why-item"><span class="why-icon">✅</span><div class="why-content"><h4>Terpercaya & Responsif</h4><p>Respon cepat. Kami siap membantu dari perencanaan hingga akhir perjalanan.</p></div></div>
+</div>
+</div>
+</section>
+<div class="full-divider"></div>
+<!-- SERVICES -->
+<section id="services">
+<div class="reveal" style="margin-bottom:56px;">
+<span class="section-label">Layanan Kami</span>
+<h2 class="section-title">Semua yang Anda<br>Butuhkan di <em>Beijing</em></h2>
+<div class="section-divider"></div>
+</div>
+<div class="services-grid reveal">
+<div class="service-card"><span class="service-icon">🚗</span><h3>Private Car Service</h3><span class="service-sub">Minimum 10 Jam · Overtime Normal</span><ul><li>Sewa mobil private dengan pengemudi profesional berpengalaman</li><li>Armada lengkap: sedan, MPV, van, hingga bus pariwisata</li><li>Kapasitas 1–25 penumpang sesuai kebutuhan rombongan</li><li>Cocok untuk city tour, day trip, dan antar-jemput hotel</li></ul></div>
+<div class="service-card"><span class="service-icon">🎙️</span><h3>Tour Guide Indonesia</h3><span class="service-sub">Bahasa Indonesia · Per Jam Kerja</span><ul><li>Guide lokal berbahasa Indonesia yang fasih & berpengetahuan luas</li><li>Menjelaskan sejarah dan budaya Beijing dengan cara mudah dipahami</li><li>Bisa dikombinasikan dengan layanan Private Car untuk paket lengkap</li><li>Cocok untuk keluarga, sekolah, delegasi bisnis & pameran</li></ul></div>
+<div class="service-card"><span class="service-icon">✈️</span><h3>Airport Pickup & Drop</h3><span class="service-sub">PEK & PKX · Tersedia 24 Jam</span><ul><li>Jemput & antar dari/ke Bandara Capital (PEK) atau Daxing (PKX)</li><li>Pengemudi standby dengan name sign profesional di area kedatangan</li><li>Armada bersih & nyaman untuk awal/akhir perjalanan yang mulus</li><li>Tersedia dini hari, malam hari, dan semua penerbangan</li></ul></div>
+<div class="service-card"><span class="service-icon">📦</span><h3>Jastip PDD & Taobao</h3><span class="service-sub">Pinduoduo · Taobao · Dari Beijing</span><ul><li>Pesan produk dari Pinduoduo & Taobao langsung dari Beijing</li><li>Kategori: elektronik, fashion, skincare, aksesoris, oleh-oleh</li><li>Kami cek kualitas & kondisi barang sebelum pengiriman</li><li>Opsi: ambil di Beijing atau kirim langsung ke Indonesia</li></ul></div>
+</div>
+</section>
+<div class="full-divider"></div>
+<!-- PRICE -->
+<section id="price">
+<div class="reveal" style="margin-bottom:40px;">
+<span class="section-label">Daftar Harga</span>
+<h2 class="section-title">Harga Transparan,<br><em>Tanpa Kejutan</em></h2>
+<div class="section-divider"></div>
+</div>
+<div class="reveal">
+<div class="price-tabs">
+<button class="tab-btn active" onclick="showTab('car')">🚗 Private Car</button>
+<button class="tab-btn" onclick="showTab('guide')">🎙 Tour Guide</button>
+</div>
+<div id="tab-car" class="tab-content active">
+<table class="price-table"><thead><tr><th>Jumlah Tamu</th><th>Harga / Jam</th><th>OT / Jam</th></tr></thead>
+<tbody>
+<tr><td>1 – 3 Pax (kapasitas 4 org)</td><td>¥ 120</td><td>¥ 120</td></tr>
+<tr><td>4 – 6 Pax (kapasitas 7 org)</td><td>¥ 150</td><td>¥ 150</td></tr>
+<tr><td>7 – 15 Pax (kapasitas 15 org)</td><td>¥ 170</td><td>¥ 170</td></tr>
+<tr><td>16 – 25 Pax (kapasitas 25 org)</td><td>¥ 200</td><td>¥ 200</td></tr>
+</tbody></table>
+<div class="price-note">¥ = RMB (Chinese Yuan)  ·  Minimum sewa 10 jam  ·  OT dihitung per jam normal</div>
+</div>
+<div id="tab-guide" class="tab-content">
+<table class="price-table"><thead><tr><th>Jumlah Tamu</th><th>Harga / Jam</th><th>OT / Jam</th></tr></thead>
+<tbody>
+<tr><td>1 – 6 Pax</td><td>¥ 100</td><td>¥ 100</td></tr>
+<tr><td>7 – 15 Pax</td><td>¥ 120</td><td>¥ 120</td></tr>
+<tr><td>16 – 25 Pax</td><td>¥ 150</td><td>¥ 150</td></tr>
+</tbody></table>
+<div class="price-note">Bahasa Indonesia fasih  ·  Per jam kerja  ·  Bisa combo dengan Private Car</div>
+</div>
+</div>
+</section>
+<div class="full-divider"></div>
+<!-- DESTINATIONS -->
+<section id="destinations">
+<div class="reveal" style="margin-bottom:48px;">
+<span class="section-label">Destinasi Pilihan</span>
+<h2 class="section-title">Jelajahi <em>Beijing</em><br>Bersama Kami</h2>
+<div class="section-divider"></div>
+</div>
+<div class="dest-grid reveal">
+<div class="dest-card"><span class="dest-icon">🏯</span><h3>Great Wall</h3><p>Keajaiban dunia yang wajib dikunjungi. Kami antar ke Mutianyu (cable car + tobogan) atau Juyongguan yang lebih dekat dari kota.</p></div>
+<div class="dest-card"><span class="dest-icon">🏛️</span><h3>Forbidden City</h3><p>Istana kekaisaran terbesar di dunia dengan lebih dari 9.000 ruangan. 500 tahun jadi pusat kekuasaan Dinasti Ming & Qing.</p></div>
+<div class="dest-card"><span class="dest-icon">🌅</span><h3>Tiananmen Square</h3><p>Alun-alun terbesar di dunia dan simbol China modern. Foto di depan Gerbang Tiananmen yang ikonik.</p></div>
+<div class="dest-card"><span class="dest-icon">⛩️</span><h3>Temple of Heaven</h3><p>Kompleks kuil kerajaan tempat kaisar berdoa untuk panen. Taman luasnya penuh warga Beijing berolahraga pagi.</p></div>
+<div class="dest-card"><span class="dest-icon">🌿</span><h3>Summer Palace</h3><p>Taman istana kerajaan 300 hektar dengan Danau Kunming yang indah. Naik perahu, jalan di Long Corridor 728m.</p></div>
+<div class="dest-card"><span class="dest-icon">🏮</span><h3>Nanluoguxiang</h3><p>Hutong paling terkenal Beijing — lorong bersejarah penuh kafe indie, toko vintage, dan jajanan lokal yang autentik.</p></div>
+<div class="dest-card"><span class="dest-icon">🌊</span><h3>Shichahai Lake</h3><p>Danau bersejarah di pusat kota dikelilingi hutong asli. Kafe pinggir danau, becak hutong, dan sunset yang cantik.</p></div>
+<div class="dest-card"><span class="dest-icon">🎨</span><h3>798 Art District</h3><p>Kawasan seni di bekas pabrik militer — galeri internasional, instalasi giant, kafe desainer, dan vibes kreatif yang unik.</p></div>
+<div class="dest-card"><span class="dest-icon">🛍️</span><h3>Wangfujing</h3><p>Jalan belanja utama Beijing — Snack Street dengan jajanan unik, pusat perbelanjaan, dan kehidupan kota yang hidup.</p></div>
+<div class="dest-card"><span class="dest-icon">🌃</span><h3>Sanlitun</h3><p>Open-air mall paling hip Beijing — brand internasional, restoran dari seluruh dunia, dan nightlife terbaik di kota.</p></div>
+<div class="dest-card"><span class="dest-icon">🌲</span><h3>Solana</h3><p>Outdoor mall premium dengan danau buatan di tengahnya. Suasana berbeda — nyaman, hijau, restoran internasional.</p></div>
+<div class="dest-card"><span class="dest-icon">🎓</span><h3>Wudaokou</h3><p>Distrik mahasiswa paling internasional di Beijing. Penuh restoran Asia, café kekinian, dan suasana yang sangat hidup.</p></div>
+<div class="dest-card"><span class="dest-icon">🏙️</span><h3>Wudaoying Hutong</h3><p>Hutong paling keren yang belum banyak turis tahu — restoran hidden gem, café specialty coffee, dan butik lokal.</p></div>
+<div class="dest-card"><span class="dest-icon">🏮</span><h3>Qianmen & Dashilan</h3><p>Kawasan bersejarah selatan Forbidden City dengan arsitektur Dinasti Qing yang masih asli. Kuliner legendaris ada di sini.</p></div>
+<div class="dest-card"><span class="dest-icon">🎢</span><h3>Universal Studio Beijing</h3><p>Theme park terbaru dan terbesar Asia — Harry Potter World, Transformers, Jurassic World. Beli tiket online H-7!</p></div>
+</div>
+</section>
+<div class="full-divider"></div>
+<!-- HOW TO ORDER -->
+<section id="order">
+<div class="reveal" style="margin-bottom:72px;text-align:center;">
+<span class="section-label">Cara Pemesanan</span>
+<h2 class="section-title">Pesan dalam<br><em>4 Langkah Mudah</em></h2>
+<div class="section-divider" style="margin:0 auto 0;"></div>
+</div>
+<div class="steps-row reveal">
+<div class="step"><div class="step-num">01</div><h4>Hubungi Kami</h4><p>Chat via WhatsApp ke @_nihaobeijing. Ceritakan rencana perjalanan Anda.</p></div>
+<div class="step"><div class="step-num">02</div><h4>Konsultasi Gratis</h4><p>Kami bantu susun itinerary terbaik sesuai kebutuhan dan budget Anda.</p></div>
+<div class="step"><div class="step-num">03</div><h4>Konfirmasi & DP</h4><p>Setuju penawaran? Lakukan DP 50% untuk konfirmasi booking Anda.</p></div>
+<div class="step"><div class="step-num">04</div><h4>Nikmati Beijing</h4><p>Guide & driver kami siap menemani perjalanan Anda dari awal hingga akhir.</p></div>
+</div>
+</section>
+<div class="full-divider"></div>
+<!-- KETENTUAN -->
+<section id="ketentuan">
+<div class="reveal" style="margin-bottom:48px;">
+<span class="section-label">Syarat & Ketentuan</span>
+<h2 class="section-title">Ketentuan <em>Layanan</em></h2>
+<div class="section-divider"></div>
+<p style="color:var(--gray2);font-size:14px;line-height:1.8;">Dengan melakukan booking, Anda dinyatakan telah membaca dan menyetujui seluruh ketentuan berikut.</p>
+</div>
+<div class="reveal" style="display:flex;flex-direction:column;gap:8px;">
+<div class="accord-item"><div class="accord-head" onclick="toggleAccord(this)"><span>📌 1. Ketentuan Booking</span><span class="accord-arrow">+</span></div><div class="accord-body"><p>· Pemesanan wajib dilakukan <strong>minimal 1×24 jam</strong> sebelum tanggal tur.</p><p>· Booking dianggap <strong>resmi & terkonfirmasi</strong> setelah DP diterima.</p><p>· Saat booking, cantumkan: tanggal, durasi, jumlah peserta, rute, dan layanan.</p></div></div>
+<div class="accord-item"><div class="accord-head" onclick="toggleAccord(this)"><span>💳 2. Sistem Pembayaran</span><span class="accord-arrow">+</span></div><div class="accord-body"><p>· <strong>DP 50%</strong> dibayarkan saat konfirmasi booking.</p><p>· <strong>Pelunasan 100%</strong> paling lambat <strong>H-1</strong> sebelum tur.</p><p>· Metode: Transfer bank / WeChat Pay / Alipay.</p></div></div>
+<div class="accord-item"><div class="accord-head" onclick="toggleAccord(this)"><span>⏱️ 3. Perhitungan Jam Kerja</span><span class="accord-arrow">+</span></div><div class="accord-body"><p>· Jam kerja dihitung sejak <strong>waktu penjemputan / titik temu</strong> yang disepakati.</p><p>· Tour Guide dan Mobil <strong>dihitung terpisah</strong>.</p><p>· Durasi minimum: <strong>10 jam per layanan</strong>.</p></div></div>
+<div class="accord-item"><div class="accord-head" onclick="toggleAccord(this)"><span>🕐 4. Ketentuan Overtime</span><span class="accord-arrow">+</span></div><div class="accord-body"><p>· Overtime dihitung per jam penuh, dibulatkan ke atas jika lebih dari <strong>30 menit</strong>.</p><p>· Tarif overtime = tarif normal per jam.</p><p>· Kami akan menginformasikan jika waktu mendekati batas.</p></div></div>
+<div class="accord-item"><div class="accord-head" onclick="toggleAccord(this)"><span>⏰ 5. Jika Customer Terlambat</span><span class="accord-arrow">+</span></div><div class="accord-body"><p>· Jam kerja tetap berjalan sesuai <strong>jadwal yang disepakati</strong>.</p><p>· Toleransi keterlambatan: <strong>15 menit</strong> tanpa biaya tambahan.</p><p>· Lebih dari 15 menit tetap dihitung sebagai jam berjalan.</p></div></div>
+<div class="accord-item"><div class="accord-head" onclick="toggleAccord(this)"><span>🔄 6. Perubahan Jadwal</span><span class="accord-arrow">+</span></div><div class="accord-body"><p>· Perubahan wajib diinformasikan <strong>minimal 12 jam sebelumnya</strong>.</p><p>· Perubahan kurang dari 12 jam: biaya rescheduling <strong>100 RMB</strong>.</p></div></div>
+<div class="accord-item"><div class="accord-head" onclick="toggleAccord(this)"><span>❌ 7. Pembatalan</span><span class="accord-arrow">+</span></div><div class="accord-body"><p>· Batal <strong>≥ 48 jam sebelum tur:</strong> DP kembali 50%.</p><p>· Batal <strong>kurang dari 48 jam:</strong> DP tidak dapat dikembalikan.</p><p>· <strong>No-show:</strong> dikenakan 50% dari total biaya hari tersebut.</p></div></div>
+<div class="accord-item"><div class="accord-head" onclick="toggleAccord(this)"><span>💡 8. Biaya Tambahan</span><span class="accord-arrow">+</span></div><div class="accord-body"><p>· <strong>Tiket masuk</strong> wisata ditanggung customer.</p><p>· <strong>Parkir & tol</strong> ditanggung customer.</p><p>· <strong>Makan guide</strong> ditanggung customer (ikut makan bersama tamu).</p></div></div>
+<div class="accord-item"><div class="accord-head" onclick="toggleAccord(this)"><span>🚗 9. Ketentuan Kendaraan & Guide</span><span class="accord-arrow">+</span></div><div class="accord-body"><p>· Kapasitas mobil sesuai jenis kendaraan yang dipesan.</p><p>· Dilarang membawa makanan berbau tajam, hewan peliharaan, atau benda berbahaya.</p><p>· Perubahan rute mendadak saat tur dapat menambah durasi dan berpotensi overtime.</p></div></div>
+<div class="accord-item"><div class="accord-head" onclick="toggleAccord(this)"><span>📊 10. Guide & Mobil Dihitung Terpisah</span><span class="accord-arrow">+</span></div><div class="accord-body"><p>· Layanan Tour Guide dan Mobil + Driver adalah dua layanan <strong>independen</strong>.</p><p>· Menggunakan keduanya = tarif dijumlahkan.</p></div></div>
+</div>
+</section>
+<div class="full-divider"></div>
+<!-- ITINERARY GENERATOR -->
+<section id="itinerary">
+<div class="reveal" style="margin-bottom:48px;text-align:center;">
+<span class="section-label">Instant · Tanpa Loading</span>
+<h2 class="section-title">Generate <em>Itinerary</em><br>Perjalanan Kamu</h2>
+<div class="section-divider" style="margin:0 auto 20px;"></div>
+<p style="color:var(--gray2);font-size:14px;">Pilih preferensi kamu — itinerary langsung muncul, max 3 destinasi per hari.</p>
+</div>
+<div class="reveal" style="max-width:680px;margin:0 auto;">
+<div style="background:var(--black2);border:1px solid rgba(212,175,55,.2);padding:36px;margin-bottom:24px;">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+<div><label class="itin-label">Jumlah Hari</label>
+<select id="itin-days" class="itin-input"><option value="1">1 Hari</option><option value="2">2 Hari</option><option value="3" selected>3 Hari</option><option value="4">4 Hari</option></select></div>
+<div><label class="itin-label">Jumlah Orang</label>
+<select id="itin-pax" class="itin-input"><option value="1-3">1–3 Orang</option><option value="4-6" selected>4–6 Orang</option><option value="7-15">7–15 Orang</option><option value="16-25">16–25 Orang</option></select></div>
+</div>
+<div style="margin-bottom:16px;"><label class="itin-label">Tipe Wisatawan</label>
+<select id="itin-type" class="itin-input"><option value="keluarga">Keluarga dengan anak</option><option value="pasangan">Pasangan / Honeymoon</option><option value="rombongan">Rombongan / Group Tour</option><option value="bisnis">Delegasi Bisnis</option><option value="sekolah">Rombongan Sekolah</option><option value="solo">Solo / Backpacker</option></select></div>
+<div style="margin-bottom:24px;"><label class="itin-label">Fokus Wisata</label>
+<select id="itin-focus" class="itin-input"><option value="sejarah & budaya">Sejarah & Budaya</option><option value="campuran semua">Campuran (Semua)</option><option value="modern & hiburan">Modern & Hiburan</option></select></div>
+<button id="itin-btn" onclick="generateItinerary()" class="btn-primary" style="width:100%;text-align:center;">✨ Generate Itinerary Sekarang</button>
+</div>
+<div id="itin-result" style="display:none;">
+<div style="background:var(--black2);border:1px solid rgba(212,175,55,.3);padding:32px;">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid rgba(212,175,55,.15);">
+<span style="font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--gold);">🗺️ Itinerary Beijing</span>
+<button onclick="copyItinerary()" style="background:transparent;border:1px solid rgba(212,175,55,.3);color:var(--gold);padding:8px 16px;font-size:11px;letter-spacing:1px;cursor:pointer;">COPY</button>
+</div>
+<div id="itin-content" style="color:var(--gray2);font-size:14px;line-height:1.9;"></div>
+<div style="margin-top:28px;padding-top:20px;border-top:1px solid rgba(212,175,55,.15);">
+<a href="https://wa.me/6281266866889" target="_blank" rel="noopener noreferrer" class="btn-primary" style="display:block;text-align:center;">💬 Kirim Itinerary Ini ke Nihao Beijing</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="full-divider"></div>
+<!-- CONTACT -->
+<section id="contact">
+<div class="contact-grid">
+<div class="contact-info reveal">
+<span class="section-label">Hubungi Kami</span>
+<h2 class="section-title">Siap Membantu<br><em>Perjalanan Anda</em></h2>
+<div class="section-divider"></div>
+<p>Konsultasi gratis, respon cepat setiap hari mulai jam 09.00 WIB. Kami siap menjawab semua pertanyaan Anda tentang perjalanan ke Beijing.</p>
+<div class="contact-items">
+<a href="https://wa.me/6281266866889" target="_blank" rel="noopener noreferrer" class="contact-item"><span class="contact-item-icon">📱</span><div class="contact-item-text"><label>WhatsApp</label><span>+62 812-6686-6889</span></div></a>
+<a href="https://instagram.com/_nihaobeijing" target="_blank" rel="noopener noreferrer" class="contact-item"><span class="contact-item-icon">📸</span><div class="contact-item-text"><label>Instagram</label><span>@_nihaobeijing</span></div></a>
+<div class="contact-item"><span class="contact-item-icon">📍</span><div class="contact-item-text"><label>Base Operasional</label><span>Beijing, China</span></div></div>
+<div class="contact-item"><span class="contact-item-icon">⏰</span><div class="contact-item-text"><label>Jam Respons</label><span>Setiap hari, 09.00 – 22.00 WIB</span></div></div>
+</div>
+</div>
+<div class="reveal" style="display:flex;flex-direction:column;justify-content:center;">
+<div style="border:1px solid rgba(212,175,55,.2);padding:48px;background:rgba(212,175,55,.03);">
+<div style="font-family:'Cormorant Garamond',serif;font-size:48px;color:var(--gold);margin-bottom:8px;">北京</div>
+<h3 style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--white);margin-bottom:16px;">Nihao Beijing</h3>
+<p style="color:var(--gray2);font-size:13px;line-height:1.8;margin-bottom:32px;">Private Tour & Car Service khusus wisatawan Indonesia.<br>Berbahasa Indonesia · Profesional · Terpercaya.</p>
+<div style="border-top:1px solid rgba(212,175,55,.2);padding-top:24px;display:flex;gap:16px;flex-wrap:wrap;">
+<span style="font-size:11px;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;">🚗 Private Car</span>
+<span style="font-size:11px;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;">🎙 Tour Guide</span>
+<span style="font-size:11px;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;">✈️ Airport P/U</span>
+<span style="font-size:11px;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;">📦 Jastip</span>
+</div>
+</div>
+<a href="https://wa.me/6281266866889" target="_blank" rel="noopener noreferrer" class="btn-primary" style="text-align:center;margin-top:20px;display:block;">💬 Chat WhatsApp Sekarang</a>
+</div>
+</div>
+</section>
+<footer>
+<div style="font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--gold);letter-spacing:2px;">NIHAO BEIJING</div>
+<p>Private Tour & Car Service · Beijing, China · @_nihaobeijing</p>
+<p style="color:var(--gold-dark);font-size:10px;">¥ = RMB (Chinese Yuan)</p>
+</footer>
+<script>
+const ITIN_DB={
+sejarah:{name:"Sejarah & Budaya",days:[
+{title:"Jantung Kekaisaran Beijing",destinations:[
+{time:"09:00–11:00",name:"Tiananmen Square",desc:"Alun-alun terbesar dunia. Foto di depan Gerbang Tiananmen & potret Mao. Tiba pagi agar tidak ramai."},
+{time:"11:30–14:30",name:"Forbidden City",desc:"Istana 500 tahun, 9.000 ruangan. Wajib masuk Hall of Supreme Harmony & Imperial Garden."},
+{time:"15:00–17:30",name:"Qianmen & Dashilan",desc:"Kawasan bersejarah selatan Forbidden City dengan arsitektur Dinasti Qing yang masih asli."}
+],lunch:"Quanjude Qianmen — Peking Duck legendaris sejak 1864, tepat di jalan ini."},
+{title:"Kuil & Danau Bersejarah",destinations:[
+{time:"09:00–11:30",name:"Temple of Heaven",desc:"Kuil kekaisaran paling megah. Taman luasnya penuh warga Beijing olahraga pagi."},
+{time:"12:30–14:30",name:"Shichahai Lake",desc:"Danau bersejarah dikelilingi hutong asli. Naik becak hutong atau jalan kaki keliling danau."},
+{time:"15:00–17:30",name:"Nanluoguxiang Hutong",desc:"Hutong terpopuler Beijing — kafe indie, toko vintage, dan jajanan lokal."}
+],lunch:"Warung lokal di Shichahai — coba zhajiangmian (mie hitam khas Beijing)."},
+{title:"Great Wall",destinations:[
+{time:"07:30–14:00",name:"Great Wall — Mutianyu",desc:"Seksi terbaik: dikelilingi hutan, tidak ramai. Naik cable car, turun tobogan."},
+{time:"15:00–17:30",name:"Wangfujing Street",desc:"Jalan utama Beijing. Snack street, belanja oleh-oleh, dan pusat kota yang hidup."}
+],lunch:"Restoran sekitar Mutianyu — ayam bakar dan mie pegunungan khas daerah tersebut."},
+{title:"Summer Palace & Hutong Malam",destinations:[
+{time:"08:30–12:30",name:"Summer Palace",desc:"Istana musim panas 300 hektar. Naik perahu di Danau Kunming, jalan di Long Corridor 728m."},
+{time:"13:30–15:30",name:"Shichahai & Yinding Bridge",desc:"Jembatan Yinding ikonik dengan view Drum Tower — spot foto terbaik hutong Beijing."},
+{time:"16:00–18:30",name:"Nanluoguxiang Evening",desc:"Lebih hidup saat sore-malam. Lampu menyala, kafe buka, suasana sangat photogenic."}
+],lunch:"Restoran halal di Shichahai — ada beberapa pilihan Muslim food yang enak."}
+],tips:{keluarga:"Great Wall Mutianyu paling aman untuk keluarga — ada cable car. Anak min 5 tahun.",pasangan:"Shichahai malam sangat romantis — jalan di pinggir danau sambil lihat lampu kota.",rombongan:"Pesan tiket Forbidden City online H-7. Kuota harian sangat terbatas.",bisnis:"Forbidden City + Qianmen terbaik untuk delegasi — sejarah dan konteks budaya China.",sekolah:"Forbidden City + Temple of Heaven paling edukatif — banyak panel informasi.",solo:"Datang ke Forbidden City jam 08:30 tepat buka — paling sepi, cahaya pagi bagus."}},
+campuran:{name:"Campuran (Semua)",days:[
+{title:"Best of Beijing — Hari Pertama",destinations:[
+{time:"09:00–12:00",name:"Tiananmen & Forbidden City",desc:"Start dari alun-alun lalu masuk istana. Ambil 3 jam dari pintu selatan ke utara."},
+{time:"13:00–15:30",name:"Qianmen & Dashilan",desc:"Makan siang di kawasan bersejarah ini, jalan-jalan, dan beli oleh-oleh pertama."},
+{time:"16:00–19:00",name:"Wangfujing",desc:"Tutup sore di pusat kota — Snack Street, belanja, dan kehidupan kota Beijing."}
+],lunch:"Peking Duck di Quanjude Qianmen — harus dicoba setidaknya sekali."},
+{title:"Alam & Hutong",destinations:[
+{time:"08:30–12:30",name:"Summer Palace",desc:"Taman kerajaan yang tidak boleh dilewatkan. Naik perahu, jalan di Long Corridor."},
+{time:"13:30–15:30",name:"Shichahai Lake",desc:"Danau bersejarah di pusat kota — santai, foto di Yinding Bridge, kafe pinggir danau."},
+{time:"16:00–19:30",name:"Nanluoguxiang Hutong",desc:"Hutong terpopuler untuk jalan sore — kuliner lokal, toko vintage, suasana santai."}
+],lunch:"Makan siang di Shichahai — warung lokal dengan mie dan nasi goreng Beijing."},
+{title:"Great Wall & Seni Modern",destinations:[
+{time:"07:30–14:00",name:"Great Wall — Mutianyu",desc:"Pengalaman paling epic. Cable car naik, tobogan turun. Ambil waktu lebih lama."},
+{time:"15:30–18:00",name:"798 Art District",desc:"Kontras sempurna: dari tembok kuno ke seni kontemporer. Galeri dan instalasi keren."},
+{time:"18:30–21:00",name:"Sanlitun Night",desc:"Tutup hari dengan dinner di Sanlitun — pilihan restoran paling beragam."}
+],lunch:"Warung dekat Great Wall — nasi dan lauk sederhana tapi mengenyangkan."},
+{title:"Modern Beijing & Penutup",destinations:[
+{time:"09:00–12:00",name:"Wudaoying Hutong",desc:"Hutong paling underrated — café specialty, restoran hidden gem, vibes sangat lokal."},
+{time:"13:00–15:30",name:"Solana Shopping Park",desc:"Belanja terakhir di mal outdoor premium. Danau buatan membuat suasana nyaman."},
+{time:"16:00–19:30",name:"Temple of Heaven Park Sore",desc:"Penutup sempurna — jalan santai di taman bersejarah, foto golden hour."}
+],lunch:"Food hall Solana — pilih dari berbagai restoran internasional."}
+],tips:{keluarga:"Hari 1 dan 3 paling seru untuk anak-anak. Great Wall ada tobogan yang disukai!",pasangan:"Hari 2 paling romantis: Summer Palace pagi + Shichahai sore + Nanluoguxiang malam.",rombongan:"Pesan tiket Forbidden City dan Great Wall online jauh hari — kuota terbatas.",bisnis:"Hari 4 cocok untuk delegasi bisnis — Wudaoying informal meeting, Solana dinner.",sekolah:"Hari 1 dan 3 paling edukatif. Siapkan lembar observasi untuk siswa.",solo:"Fleksibel ubah urutan sesuai mood. Wudaoying sangat cocok untuk kenalan expat lokal."}},
+modern:{name:"Modern & Hiburan",days:[
+{title:"Seni, Desain & Kawasan Kreatif",destinations:[
+{time:"09:30–13:00",name:"798 Art District",desc:"Kawasan seni di bekas pabrik militer — galeri internasional, instalasi giant, kafe desainer."},
+{time:"14:00–16:30",name:"Wudaoying Hutong",desc:"Hutong paling artsy — hidden café, butik lokal, restoran dengan interior sangat didesain."},
+{time:"17:00–21:00",name:"Sanlitun Taikoo Li",desc:"Pusat nightlife paling cosmopolitan Beijing. Restoran internasional dan rooftop bar."}
+],lunch:"Café flagship di 798 — kopi single origin dan pastry di tengah area seni."},
+{title:"Shopping Premium & Outdoor Mall",destinations:[
+{time:"10:00–13:00",name:"Solana Shopping Park",desc:"Mal outdoor premium di tepi danau buatan — suasana berbeda, restoran internasional."},
+{time:"14:00–17:00",name:"Sanlitun Eksplorasi",desc:"Jelajahi gang-gang di sekitar Taikoo Li — vintage shop tersembunyi dan concept store."},
+{time:"17:30–20:30",name:"Wangfujing Evening",desc:"Pusat kota Beijing malam hari — Snack Street ramai dan atmosphere yang hidup."}
+],lunch:"Makan di Solana — restoran outdoor dengan view danau buatan."},
+{title:"Kawasan Mahasiswa & Kuliner Global",destinations:[
+{time:"10:00–13:00",name:"Wudaokou",desc:"Area paling internasional di Beijing — restoran Korea, Jepang, café kekinian. Harga terjangkau."},
+{time:"14:00–16:30",name:"Nanluoguxiang Hutong",desc:"Hutong modern untuk sore — toko lucu, es krim unik, café instagramable."},
+{time:"17:00–20:00",name:"Shichahai Bar & Café Street",desc:"Pinggir danau ramai dengan bar dan kafe — sore ada live music di beberapa spot."}
+],lunch:"Korean BBQ di Wudaokou — murah, otentik, porsi besar. Setengah harga dari Sanlitun."},
+{title:"Universal Studio — Full Fun Day",destinations:[
+{time:"09:00–16:30",name:"Universal Studio Beijing",desc:"Theme park terbesar Asia — Harry Potter World, Nintendo World, Jurassic World!"},
+{time:"17:30–20:00",name:"Sanlitun Malam",desc:"Tutup hari dengan dinner di Sanlitun setelah seharian di Universal."}
+],lunch:"Food hall Universal Studio — banyak pilihan termasuk restoran bertema film."}
+],tips:{keluarga:"Universal Beijing wajib untuk keluarga! Beli tiket minimal seminggu sebelum.",pasangan:"Hari 1 paling cocok untuk pasangan — 798 siang, Wudaoying sore, Sanlitun malam.",rombongan:"Universal Studio harus booking tiket grup minimal H-14. Koordinasikan meet point.",bisnis:"Solana bagus untuk business lunch informal — nyaman dan tidak terlalu formal.",sekolah:"798 Art District sangat inspiratif untuk siswa seni dan desain.",solo:"Wudaokou adalah spot terbaik untuk solo traveler ketemu orang baru."}}
+};
+const TYPE_TIPS={keluarga:"👨‍👩‍👧 Tips Keluarga",pasangan:"💑 Tips Pasangan",rombongan:"👥 Tips Rombongan",bisnis:"💼 Tips Delegasi Bisnis",sekolah:"🎓 Tips Rombongan Sekolah",solo:"🎒 Tips Solo Traveler"};
+const PAX_CAR={"1-3":"Sedan — ¥120/jam","4-6":"MPV — ¥150/jam","7-15":"Van — ¥170/jam","16-25":"Bus — ¥200/jam"};
+function generateItinerary(){
+const days=parseInt(document.getElementById('itin-days').value);
+const pax=document.getElementById('itin-pax').value;
+const type=document.getElementById('itin-type').value;
+const focusRaw=document.getElementById('itin-focus').value;
+const focusMap={"sejarah & budaya":"sejarah","campuran semua":"campuran","modern & hiburan":"modern"};
+const focusKey=focusMap[focusRaw]||"campuran";
+const db=ITIN_DB[focusKey];
+const selectedDays=db.days.slice(0,days);
+const tipText=db.tips[type]||db.tips["rombongan"];
+const totalHours=days*10;
+renderItinerary({days:selectedDays,tips:tipText,total_hours:totalHours},days,pax,type,focusKey);
+}
+function renderItinerary(data,days,pax,type,focusKey){
+let html='';
+html+='<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;">';
+html+='<span style="background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.3);color:var(--gold);font-size:11px;padding:4px 10px;">'+days+' HARI</span>';
+html+='<span style="background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.3);color:var(--gold);font-size:11px;padding:4px 10px;">'+pax.toUpperCase()+' ORANG</span>';
+html+='<span style="background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.3);color:var(--gold);font-size:11px;padding:4px 10px;">'+ITIN_DB[focusKey].name.toUpperCase()+'</span>';
+html+='</div>';
+data.days.forEach((day,idx)=>{
+html+='<div class="itin-day">';
+html+='<div class="itin-day-title">📅 Hari '+(idx+1)+' — '+day.title+'</div>';
+day.destinations.forEach(dest=>{
+html+='<div class="itin-dest"><span class="itin-time">'+dest.time+'</span>';
+html+='<div class="itin-place"><strong>'+dest.name+'</strong>'+dest.desc+'</div></div>';
+});
+html+='<div style="margin-top:10px;padding:8px 14px;background:rgba(190,20,20,.08);border-left:2px solid var(--red);font-size:12px;color:var(--gray2);">🍽️ <strong style="color:var(--white);">Makan Siang:</strong> '+day.lunch+'</div></div>';
+});
+html+='<div style="margin-top:16px;padding:14px;border:1px solid rgba(212,175,55,.15);background:rgba(212,175,55,.03);font-size:12px;color:var(--gray2);">';
+html+='<strong style="color:var(--gold);">'+(TYPE_TIPS[type]||'💡 Tips')+':</strong> '+data.tips+'</div>';
+html+='<div style="margin-top:12px;padding:12px 14px;background:rgba(212,175,55,.06);font-size:12px;color:var(--gold);">';
+html+='🚗 <strong>Rekomendasi Armada:</strong> '+PAX_CAR[pax]+'<br>';
+html+='⏱️ <strong>Estimasi:</strong> '+data.total_hours+' jam total | Min. 10 jam/hari</div>';
+document.getElementById('itin-content').innerHTML=html;
+document.getElementById('itin-result').style.display='block';
+document.getElementById('itin-result').scrollIntoView({behavior:'smooth'});
+}
+function copyItinerary(){
+const text=document.getElementById('itin-content').innerText;
+navigator.clipboard.writeText(text).then(()=>{alert('Itinerary berhasil dicopy! 📋');}).catch(()=>{alert('Gagal copy. Silakan select teks manual.');});
+}
+function toggleAccord(head){
+const body=head.nextElementSibling;
+const isOpen=head.classList.contains('open');
+document.querySelectorAll('.accord-head.open').forEach(h=>{h.classList.remove('open');h.nextElementSibling.classList.remove('open');});
+if(!isOpen){head.classList.add('open');body.classList.add('open');}
+}
+function showTab(tab){
+document.querySelectorAll('.tab-content').forEach(el=>el.classList.remove('active'));
+document.querySelectorAll('.tab-btn').forEach(el=>el.classList.remove('active'));
+document.getElementById('tab-'+tab).classList.add('active');
+event.target.classList.add('active');
+}
+const reveals=document.querySelectorAll('.reveal');
+const observer=new IntersectionObserver((entries)=>{
+entries.forEach((entry,i)=>{
+if(entry.isIntersecting){setTimeout(()=>entry.target.classList.add('visible'),i*80);observer.unobserve(entry.target);}
+});},{threshold:.1});
+reveals.forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
